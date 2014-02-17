@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MathWing</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="main_tab_hits">Hits</string>
+    <string name="hits_focus">Focus</string>
+    <string name="hits_targetlock">Target Lock</string>
+    <string name="hits_attackdice">Nº of Attack Dice:</string>
+    <string name="hits_number">Nº of Hits:</string>
+    <string name="hits_avgnumhits">Average Nº of Hits:</string>
+    <string name="hits_hitprobability">Nº of Hits Probability:</string>
+
+</resources>
