@@ -7,6 +7,11 @@ import com.gmerin.mathwing.HitsActivity;
 public class SeekBarHitsListener implements SeekBar.OnSeekBarChangeListener {
 	HitsActivity parentActivity;
 	
+	/**
+	 * Constructor. Necesita la actividad padre para guardar los cambios
+	 * y actualizar el contenido de la interfaz.
+	 * @param parentActivity la actividad padre.
+	 */
 	public SeekBarHitsListener(HitsActivity parentActivity) {
 		this.parentActivity = parentActivity;
 	}

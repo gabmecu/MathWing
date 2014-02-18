@@ -8,6 +8,14 @@ public class MathWingProbability {
 	public static final double CRITICAL_HIT_PROB = (double) 1/8;
 	public static final double MISS_PROB = (double) 4/8;
 	
+	/**
+	 * Devuelve la probabilidad de conseguir, al menos, el número de impactos suministrados.
+	 * @param focus si el ataque tiene concentración
+	 * @param targetLock si el ataque tiene ficha de blanco fijado
+	 * @param dice número de dados de ataque
+	 * @param hits número de impactos mínimo
+	 * @return
+	 */
 	public static double getHitsProbability(boolean focus, boolean targetLock, int dice, int hits) {
 		// Si el número de impactos es mayor que el número de dados, devolvemos 0
 		if (hits > dice)
@@ -23,7 +31,7 @@ public class MathWingProbability {
 		// Obtenemos la probabilidad acumulada
 		try {
 			if (targetLock)
-				result = binomial.cumulativeProbabilityWithRerolls(hits, hits);
+				result = binomial.cumulativeProbabilityWithRerolls(hits);
 			else
 				result = binomial.cumulativeProbability(hits);
 			
@@ -35,6 +43,13 @@ public class MathWingProbability {
 		return result;
 	}
 	
+	/**
+	 * Obtiene el número medio de impactos.
+	 * @param focus Si el ataque es concentrado.
+	 * @param targetLock Si el ataque tiene blanco fijado.
+	 * @param dice Número de datos del ataque
+	 * @return
+	 */
 	public static double getAvgNumHits(boolean focus, boolean targetLock, int dice) {
 		// Obtenemos la probabilidad de conseguir un impacto
 		double prob = getHitProb(focus);
@@ -49,6 +64,11 @@ public class MathWingProbability {
 		return num;
 	}
 	
+	/**
+	 * Obtiene la probablidad de impacto en función de si el ataque es concentrado o no.
+	 * @param focus Si el ataque es concentrado.
+	 * @return
+	 */
 	public static double getHitProb(boolean focus) {
 		double prob = HIT_PROB_NO_FOCUS;
 		if (focus)

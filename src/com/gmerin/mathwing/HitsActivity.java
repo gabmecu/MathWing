@@ -33,6 +33,10 @@ public class HitsActivity extends Activity {
 		updateValues();
 	}
 	
+	/**
+	 * Actualiza la interfaz de usuario en función de los cambios que se vayan produciendo
+	 * en los valores: dice, hits, focus y targetLock.
+	 */
 	public void updateValues() {
 		// Establecemos los valores del número de dados y el número de impactos
 		TextView txtAttackDiceValue = (TextView) findViewById(R.id.textViewAttackDiceValue);
@@ -52,6 +56,9 @@ public class HitsActivity extends Activity {
 		txtAvgNumHitsValue.setText(Double.toString(num));
 	}
 	
+	/**
+	 * Tareas de inicialización de los componentes gráficos.
+	 */
 	protected void initTasks() {
 		// Establecemos los valores máximos de los SeekBar
 		SeekBar sbarAttackDice = (SeekBar) findViewById(R.id.seekBarAttackDice);
@@ -74,18 +81,34 @@ public class HitsActivity extends Activity {
 		cBoxTargetLock.setOnCheckedChangeListener(new CheckBoxTargetLockListener(this));
 	}
 	
+	/**
+	 * Indica a la actividad el número de dados del ataque.
+	 * @param dice número de dados del ataque.
+	 */
 	public void setAttackDice(int dice) {
 		this.dice = dice;
 	}
 	
+	/**
+	 * Indica a la actividad el número de impactos mínimo que deseamos conseguir.
+	 * @param hits número de impactos.
+	 */
 	public void setNumberOfHits(int hits) {
 		this.hits = hits;
 	}
 	
+	/**
+	 * Indica a la actividad si el atque va a ser concentrado.
+	 * @param focus si el ataque es concentrado.
+	 */
 	public void setFocus(boolean focus) {
 		this.focus = focus;
 	}
 	
+	/**
+	 * Indica a la actividad si el ataque es con blanco fijado.
+	 * @param targetLock si el ataque es con blanco fijado.
+	 */
 	public void setTargetLock(boolean targetLock) {
 		this.targetLock = targetLock;
 	}

@@ -8,6 +8,11 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 public class CheckBoxFocusListener implements OnCheckedChangeListener {
 	private HitsActivity parentActivity;
 	
+	/**
+	 * Constructor. Necesita la actividad padre para guardar los cambios
+	 * y actualizar el contenido de la interfaz.
+	 * @param parentActivity la actividad padre.
+	 */
 	public CheckBoxFocusListener(HitsActivity parentActivity) {
 		this.parentActivity = parentActivity;
 	}

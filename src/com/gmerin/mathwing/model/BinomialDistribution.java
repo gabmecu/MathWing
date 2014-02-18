@@ -56,9 +56,9 @@ public class BinomialDistribution extends AbstractIntegerDistribution
 
   /**
    * Computes the probability that the experiment results in at 
-   * least x (x-n) successes.
+   * least x or more successes.
    * @param x the number of successes, should be an integer.
-   * @return the probability of at least x successes.
+   * @return the probability of x successes or more.
    */
   @Override
   public double cumulativeProbability(int x) throws MathException {
@@ -69,7 +69,15 @@ public class BinomialDistribution extends AbstractIntegerDistribution
     return cumulativeProbability;
   }
   
-  public double cumulativeProbabilityWithRerolls(int x, int rerolls) throws MathException {
+  /**
+   * Computes the probability that the experiment results in at
+   * least x or more successes, considering that, in case of a miss,
+   * all dice might be rerolled once.
+   * @param x the number of successes, should be an integer.
+   * @return the probability of x successes or more.
+   * @throws MathException
+   */
+  public double cumulativeProbabilityWithRerolls(int x) throws MathException {
 	  // Probabilidad acumulada sin repeticiones de tiradas  
 	  double cumulativeProbability = cumulativeProbability(x);
 	  
