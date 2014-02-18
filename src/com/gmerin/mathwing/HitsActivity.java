@@ -1,6 +1,7 @@
 package com.gmerin.mathwing;
 
 import com.gmerin.mathwing.listeners.CheckBoxFocusListener;
+import com.gmerin.mathwing.listeners.CheckBoxTargetLockListener;
 import com.gmerin.mathwing.listeners.SeekBarAttackDiceListener;
 import com.gmerin.mathwing.listeners.SeekBarHitsListener;
 import com.gmerin.mathwing.model.MathWingProbability;
@@ -66,8 +67,11 @@ public class HitsActivity extends Activity {
 		sbarHits.setOnSeekBarChangeListener(new SeekBarHitsListener(this));
 		
 		// Añadimos los listeners a los CheckBox
-		CheckBox cBox = (CheckBox) findViewById(R.id.checkBoxFocus);
-		cBox.setOnCheckedChangeListener(new CheckBoxFocusListener(this));
+		CheckBox cBoxFocus = (CheckBox) findViewById(R.id.checkBoxFocus);
+		cBoxFocus.setOnCheckedChangeListener(new CheckBoxFocusListener(this));
+		
+		CheckBox cBoxTargetLock = (CheckBox) findViewById(R.id.checkBoxTargetLock);
+		cBoxTargetLock.setOnCheckedChangeListener(new CheckBoxTargetLockListener(this));
 	}
 	
 	public void setAttackDice(int dice) {
@@ -80,5 +84,9 @@ public class HitsActivity extends Activity {
 	
 	public void setFocus(boolean focus) {
 		this.focus = focus;
+	}
+	
+	public void setTargetLock(boolean targetLock) {
+		this.targetLock = targetLock;
 	}
 }

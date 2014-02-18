@@ -9,6 +9,10 @@ public class MathWingProbability {
 	public static final double MISS_PROB = (double) 4/8;
 	
 	public static double getHitsProbability(boolean focus, boolean targetLock, int dice, int hits) {
+		// Si el número de impactos es mayor que el número de dados, devolvemos 0
+		if (hits > dice)
+			return 0;
+		
 		// Obtenemos probabilidad de conseguir un impacto
 		double prob = getHitProb(focus);
 		double result = -1;
@@ -18,12 +22,14 @@ public class MathWingProbability {
 		
 		// Obtenemos la probabilidad acumulada
 		try {
-			result = binomial.cumulativeProbability(hits);
+			if (targetLock)
+				result = binomial.cumulativeProbabilityWithRerolls(hits, hits);
+			else
+				result = binomial.cumulativeProbability(hits);
+			
 		} catch (MathException e) {
 			e.printStackTrace();
 		}
-		
-		// TODO: Falta actualizar los resultados si el target lock está activo
 		
 		// Devolvemos la probabilidad (valor entre 0-1)
 		return result;
@@ -33,9 +39,13 @@ public class MathWingProbability {
 		// Obtenemos la probabilidad de conseguir un impacto
 		double prob = getHitProb(focus);
 		
-		// TODO: Falta actualizar los resultados si el target lock está activo
-		
+		// Número medio de impactos
 		double num = prob*dice;
+		
+		// Si está el targetLock activado, sumamos su correspondiente probabilidad
+		if (targetLock)
+			num += dice*prob*(1-prob);
+		
 		return num;
 	}
 	

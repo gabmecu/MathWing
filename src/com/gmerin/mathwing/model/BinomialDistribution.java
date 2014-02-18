@@ -68,6 +68,25 @@ public class BinomialDistribution extends AbstractIntegerDistribution
     }
     return cumulativeProbability;
   }
+  
+  public double cumulativeProbabilityWithRerolls(int x, int rerolls) throws MathException {
+	  // Probabilidad acumulada sin repeticiones de tiradas  
+	  double cumulativeProbability = cumulativeProbability(x);
+	  
+	  //Probabilidad acumulada repitiendo los fallos
+	  double rerollsProbabilitiy = 0.0D;
+	  double aux1 = 0.0D;
+	  double aux2 = 0.0D;
+	  BinomialDistribution auxBinomial;
+	  for(int i = 1; i <= x; i++) {
+		  aux1 = probability(x-i);
+		  auxBinomial = new BinomialDistribution(n-(x-i), p);
+		  aux2 = auxBinomial.cumulativeProbability(i);
+		  rerollsProbabilitiy += aux1*aux2;
+	  }
+	  
+	  return cumulativeProbability+rerollsProbabilitiy;
+  }
 
   @Override
   protected int getDomainLowerBound(double p) {
