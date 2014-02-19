@@ -10,7 +10,9 @@ import com.gmerin.mathwing.visuals.VisualAspect;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -54,6 +56,16 @@ public class HitsActivity extends Activity {
 		TextView txtAvgNumHitsValue = (TextView) findViewById(R.id.textViewAvgNumHitsValue);
 		double num = MathWingProbability.getAvgNumHits(focus, targetLock, dice);
 		txtAvgNumHitsValue.setText(Double.toString(num));
+		
+		// Mostramos los iconos de los dados sólo de los elementos activos
+		ImageView imgFocus = (ImageView) findViewById(R.id.imageViewFocus);
+		ImageView imgTargetLock = (ImageView) findViewById(R.id.imageViewTargetLock);
+		
+		if(focus) imgFocus.setVisibility(View.VISIBLE);
+		else imgFocus.setVisibility(View.GONE); 
+		
+		if(targetLock) imgTargetLock.setVisibility(View.VISIBLE);
+		else imgTargetLock.setVisibility(View.GONE);
 	}
 	
 	/**
@@ -79,6 +91,16 @@ public class HitsActivity extends Activity {
 		
 		CheckBox cBoxTargetLock = (CheckBox) findViewById(R.id.checkBoxTargetLock);
 		cBoxTargetLock.setOnCheckedChangeListener(new CheckBoxTargetLockListener(this));
+		
+		// Mostramos los iconos de los dados sólo de los elementos activos
+		ImageView imgFocus = (ImageView) findViewById(R.id.imageViewFocus);
+		ImageView imgTargetLock = (ImageView) findViewById(R.id.imageViewTargetLock);
+		
+		if(focus) imgFocus.setVisibility(View.VISIBLE);
+		else imgFocus.setVisibility(View.INVISIBLE);
+		
+		if(targetLock) imgTargetLock.setVisibility(View.VISIBLE);
+		else imgTargetLock.setVisibility(View.INVISIBLE);
 	}
 	
 	/**

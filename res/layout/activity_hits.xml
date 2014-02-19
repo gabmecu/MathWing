@@ -5,6 +5,39 @@
     android:gravity="left"
     android:orientation="vertical" >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/imageViewNormalHit"
+            android:layout_width="@dimen/image_dice_width"
+            android:layout_height="@dimen/image_dice_height"
+            android:src="@drawable/dice_normal_hit" />
+
+        <ImageView
+            android:id="@+id/imageViewCriticalHit"
+            android:layout_width="@dimen/image_dice_width"
+            android:layout_height="@dimen/image_dice_height"
+            android:src="@drawable/dices_critical_hit" />
+
+        <ImageView
+            android:id="@+id/imageViewFocus"
+            android:layout_width="@dimen/image_dice_width"
+            android:layout_height="@dimen/image_dice_height"
+            android:src="@drawable/dice_focus" />
+
+        <ImageView
+            android:id="@+id/imageViewTargetLock"
+            android:layout_width="@dimen/image_dice_width"
+            android:layout_height="@dimen/image_dice_height"
+            android:src="@drawable/token_target_lock" />
+
+    </LinearLayout>
+
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

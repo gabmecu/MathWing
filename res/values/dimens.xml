@@ -7,5 +7,7 @@
     <dimen name="text_big">18sp</dimen>
     <dimen name="margin_vertical">4dp</dimen>
     <dimen name="margin_horizontal">2dp</dimen>
+    <dimen name="image_dice_height">30dp</dimen>
+    <dimen name="image_dice_width">40dp</dimen>
 
 </resources>
