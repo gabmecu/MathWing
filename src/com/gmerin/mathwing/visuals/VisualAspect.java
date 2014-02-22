@@ -12,6 +12,6 @@ public class VisualAspect {
 	@SuppressLint("DefaultLocale")
 	public static String doubleToString(double d) {
 		
-		return String.format("%.2f", d*100)+"%";
+		return String.format("%.2f", d);
 	}
 }

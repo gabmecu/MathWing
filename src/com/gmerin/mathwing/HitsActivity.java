@@ -1,6 +1,7 @@
 package com.gmerin.mathwing;
 
-import com.gmerin.mathwing.listeners.CheckBoxFocusListener;
+import com.gmerin.mathwing.interfaces.ActivityWithHitsInterface;
+import com.gmerin.mathwing.listeners.CheckBoxAttackFocusListener;
 import com.gmerin.mathwing.listeners.CheckBoxTargetLockListener;
 import com.gmerin.mathwing.listeners.SeekBarAttackDiceListener;
 import com.gmerin.mathwing.listeners.SeekBarHitsListener;
@@ -16,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-public class HitsActivity extends Activity {
+public class HitsActivity extends Activity implements ActivityWithHitsInterface {
 	
 	private int dice = 1;
 	private int hits = 1;
@@ -49,16 +50,16 @@ public class HitsActivity extends Activity {
 		// Actualizamos la probabilidad de obtener, como mínimo, el número de impactos seleccionados
 		TextView txtNumHitsProbValue = (TextView) findViewById(R.id.textViewNumHitsProbValue);
 		double prob = MathWingProbability.getHitsProbability(focus, targetLock, dice, hits);
-		txtNumHitsProbValue.setText(VisualAspect.doubleToString(prob));
+		txtNumHitsProbValue.setText(VisualAspect.doubleToString(prob*100)+"%");
 		txtNumHitsProbValue.setTextColor(VisualAspect.getColorFromProbability(prob));
 		
 		// Actualizamos el número medio de impactos
 		TextView txtAvgNumHitsValue = (TextView) findViewById(R.id.textViewAvgNumHitsValue);
 		double num = MathWingProbability.getAvgNumHits(focus, targetLock, dice);
-		txtAvgNumHitsValue.setText(Double.toString(num));
+		txtAvgNumHitsValue.setText(VisualAspect.doubleToString(num));
 		
 		// Mostramos los iconos de los dados sólo de los elementos activos
-		ImageView imgFocus = (ImageView) findViewById(R.id.imageViewFocus);
+		ImageView imgFocus = (ImageView) findViewById(R.id.imageViewAttackFocus);
 		ImageView imgTargetLock = (ImageView) findViewById(R.id.imageViewTargetLock);
 		
 		if(focus) imgFocus.setVisibility(View.VISIBLE);
@@ -86,14 +87,14 @@ public class HitsActivity extends Activity {
 		sbarHits.setOnSeekBarChangeListener(new SeekBarHitsListener(this));
 		
 		// Añadimos los listeners a los CheckBox
-		CheckBox cBoxFocus = (CheckBox) findViewById(R.id.checkBoxFocus);
-		cBoxFocus.setOnCheckedChangeListener(new CheckBoxFocusListener(this));
+		CheckBox cBoxFocus = (CheckBox) findViewById(R.id.checkBoxAttackFocus);
+		cBoxFocus.setOnCheckedChangeListener(new CheckBoxAttackFocusListener(this));
 		
 		CheckBox cBoxTargetLock = (CheckBox) findViewById(R.id.checkBoxTargetLock);
 		cBoxTargetLock.setOnCheckedChangeListener(new CheckBoxTargetLockListener(this));
 		
 		// Mostramos los iconos de los dados sólo de los elementos activos
-		ImageView imgFocus = (ImageView) findViewById(R.id.imageViewFocus);
+		ImageView imgFocus = (ImageView) findViewById(R.id.imageViewAttackFocus);
 		ImageView imgTargetLock = (ImageView) findViewById(R.id.imageViewTargetLock);
 		
 		if(focus) imgFocus.setVisibility(View.VISIBLE);
@@ -120,10 +121,10 @@ public class HitsActivity extends Activity {
 	}
 	
 	/**
-	 * Indica a la actividad si el atque va a ser concentrado.
+	 * Indica a la actividad si el ataque va a ser concentrado.
 	 * @param focus si el ataque es concentrado.
 	 */
-	public void setFocus(boolean focus) {
+	public void setAttackFocus(boolean focus) {
 		this.focus = focus;
 	}
 	

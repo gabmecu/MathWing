@@ -2,17 +2,17 @@ package com.gmerin.mathwing.listeners;
 
 import android.widget.SeekBar;
 
-import com.gmerin.mathwing.HitsActivity;
+import com.gmerin.mathwing.interfaces.ActivityWithHitsInterface;
 
 public class SeekBarHitsListener implements SeekBar.OnSeekBarChangeListener {
-	HitsActivity parentActivity;
+	ActivityWithHitsInterface parentActivity;
 	
 	/**
 	 * Constructor. Necesita la actividad padre para guardar los cambios
 	 * y actualizar el contenido de la interfaz.
 	 * @param parentActivity la actividad padre.
 	 */
-	public SeekBarHitsListener(HitsActivity parentActivity) {
+	public SeekBarHitsListener(ActivityWithHitsInterface parentActivity) {
 		this.parentActivity = parentActivity;
 	}
 	

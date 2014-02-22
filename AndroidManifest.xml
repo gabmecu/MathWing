@@ -23,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name="HitsActivity" android:label="@string/main_tab_hits"></activity>
+        <activity android:name="EvadesActivity" android:label="@string/main_tab_evades"></activity>
     </application>
 
 </manifest>

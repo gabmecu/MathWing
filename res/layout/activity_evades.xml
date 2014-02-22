@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="left"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -13,28 +12,16 @@
         android:orientation="horizontal" >
 
         <ImageView
-            android:id="@+id/imageViewHit"
+            android:id="@+id/imageViewEvade"
             android:layout_width="@dimen/image_dice_width"
             android:layout_height="@dimen/image_dice_height"
-            android:src="@drawable/dice_normal_hit" />
+            android:src="@drawable/defense_evade" />
 
         <ImageView
-            android:id="@+id/imageViewHitFocus"
+            android:id="@+id/imageViewEvadeFocus"
             android:layout_width="@dimen/image_dice_width"
             android:layout_height="@dimen/image_dice_height"
-            android:src="@drawable/dices_critical_hit" />
-
-        <ImageView
-            android:id="@+id/imageViewAttackFocus"
-            android:layout_width="@dimen/image_dice_width"
-            android:layout_height="@dimen/image_dice_height"
-            android:src="@drawable/dice_focus" />
-
-        <ImageView
-            android:id="@+id/imageViewTargetLock"
-            android:layout_width="@dimen/image_dice_width"
-            android:layout_height="@dimen/image_dice_height"
-            android:src="@drawable/token_target_lock" />
+            android:src="@drawable/defense_focus" />
 
     </LinearLayout>
 
@@ -46,20 +33,20 @@
         android:layout_marginTop="@dimen/margin_vertical" >
 
         <TableRow
-            android:id="@+id/tableRowNumHits"
+            android:id="@+id/tableRowNumEvades"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/textViewAvgNumHits"
+                android:id="@+id/textViewAvgNumEvades"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:text="@string/hits_avgnum"
+                android:text="@string/evades_avgnum"
                 android:textSize="@dimen/text_big" />
 
             <TextView
-                android:id="@+id/textViewAvgNumHitsValue"
+                android:id="@+id/textViewAvgNumEvadesValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
@@ -70,19 +57,19 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/tableRowNumHitsProb"
+            android:id="@+id/tableRowNumEvadesProb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/textViewNumHitsProb"
+                android:id="@+id/textViewNumEvadesProb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/hits_probability"
+                android:text="@string/evades_probability"
                 android:textSize="@dimen/text_big" />
 
             <TextView
-                android:id="@+id/textViewNumHitsProbValue"
+                android:id="@+id/textViewNumEvadesProbValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
@@ -98,20 +85,20 @@
         android:layout_height="wrap_content" >
 
         <TableRow
-            android:id="@+id/tableRowNumAttackDice"
+            android:id="@+id/tableRowNumDefenseDice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/textViewAttackDice"
+                android:id="@+id/textViewDefenseDice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|right"
-                android:text="@string/hits_attackdice"
+                android:text="@string/evades_defensedice"
                 android:textSize="@dimen/text_normal" />
 
             <TextView
-                android:id="@+id/textViewAttackDiceValue"
+                android:id="@+id/textViewDefenseDiceValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -121,7 +108,7 @@
                 android:textStyle="bold" />
 
             <SeekBar
-                android:id="@+id/seekBarAttackDice"
+                android:id="@+id/seekBarDefensekDice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
@@ -129,20 +116,20 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/tableRowNumHits"
+            android:id="@+id/tableRowNumEvades"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/textViewHits"
+                android:id="@+id/textViewEvades"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|right"
-                android:text="@string/hits_number"
+                android:text="@string/evades_number"
                 android:textSize="@dimen/text_normal" />
 
             <TextView
-                android:id="@+id/textViewHitsValue"
+                android:id="@+id/textViewEvadesValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -152,7 +139,7 @@
                 android:textStyle="bold" />
 
             <SeekBar
-                android:id="@+id/seekBarHits"
+                android:id="@+id/seekBarEvades"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
@@ -167,17 +154,10 @@
         android:orientation="vertical" >
 
         <CheckBox
-            android:id="@+id/checkBoxAttackFocus"
+            android:id="@+id/checkBoxDefenseFocus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hits_evades_focus"
-            android:textSize="@dimen/text_normal" />
-
-        <CheckBox
-            android:id="@+id/checkBoxTargetLock"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/hits_targetlock"
             android:textSize="@dimen/text_normal" />
 
     </LinearLayout>

@@ -22,7 +22,9 @@ public class MainActivity extends TabActivity {
 		// Nos quedamos con los recursos
 		Resources res = getResources();
 		
+		// Textos de las pestañas
 		String txtTabHits = res.getString(R.string.main_tab_hits);
+		String txtTabEvades = res.getString(R.string.main_tab_evades);
 		
 		// Pestaña para los impactos
 		TabSpec hitsTabSpec = tabHost.newTabSpec(txtTabHits);
@@ -30,8 +32,15 @@ public class MainActivity extends TabActivity {
 		Intent hitsIntent = new Intent(this, HitsActivity.class);
 		hitsTabSpec.setContent(hitsIntent);
 		
+		// Pestaña para las evasiones
+		TabSpec evadesTabSpec = tabHost.newTabSpec(txtTabEvades);
+		evadesTabSpec.setIndicator(txtTabEvades);
+		Intent evadesIntent = new Intent(this, EvadesActivity.class);
+		evadesTabSpec.setContent(evadesIntent);
+		
 		// Añadimos las pestañas al TabHost
 		tabHost.addTab(hitsTabSpec);
+		tabHost.addTab(evadesTabSpec);
 	}
 
 	@Override
